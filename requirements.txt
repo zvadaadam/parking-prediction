@@ -1,0 +1,10 @@
+tensorflow
+numpy
+scikit-learn
+click
+tqdm
+PyYAML
+pandas
+click
+holidays
+requests

@@ -1,0 +1,26 @@
+info:
+  model_name: Wavelet CNN
+dataset:
+  csv_path: parking.csv
+  num_samples: 512
+  sample_rate: 1
+  max_period: 40
+  stochastic_ratio: 0.5
+  signal_length: 1024
+  test_size: 0.3
+  coef_preprocess: normalization
+hyperparams:
+  batch_size: &batch_size 8
+  num_layers: &num_layers 2
+  num_classes: 2
+  num_epoches: 200
+  num_iterations: 10
+wavelet:
+  name: morl
+  max_scale: 128
+model:
+  model_type: &model_type CNN
+  trained_path:  trained_models/
+  model_description: !join [*model_type, _, l, *num_layers, _, b, *batch_size]
+  tensorboard_path: !join [tensorboard/, *model_type, _, l, *num_layers, _, b, *batch_size]
+  restore_trained_model: #!join [trained_models/, *model_type, _, l, *num_layers, _, b, *batch_size]
